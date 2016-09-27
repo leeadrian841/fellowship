@@ -16,8 +16,8 @@ var buddies = [
   'Boromir'
 ];
 
-var lands = ['The Shire', 'Rivendell', 'Mordor'];
-var body = document.querySelector('body');
+var lands = ['The Shire', 'Rivendell', 'Mordor']
+var body = document.querySelector('body')
 
 
 // Part 1
@@ -45,7 +45,7 @@ function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the second article tag on the page)
   // give each hobbit a class of hobbit
   var shirelist = document.createElement('ul')
-  document.querySelector('article').appendChild(shirelist)
+  body.querySelector('article').appendChild(shirelist)
   for (var i = 0; i < hobbits.length; i++) {
     var shireP = document.createElement('li')
     var articleFirst = document.querySelector('ul').appendChild(shireP)
@@ -65,7 +65,7 @@ function keepItSecretKeepItSafe() {
   theRing.setAttribute('id', 'the-ring')
   theRing.setAttribute('class', 'magic-imbued-jewelry')
   theRing.addEventListener('click', nazgulScreech)
-  var partfrodo = document.querySelector('li').appendChild(theRing)
+  body.querySelector('li').appendChild(theRing)
 }
 keepItSecretKeepItSafe()
 
@@ -75,12 +75,12 @@ function makeBuddies() {
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
   var asideTag = document.createElement('aside')
-  document.querySelectorAll('article')[1].appendChild(asideTag)
   var buddieslist = document.createElement('ul')
-  document.querySelector('aside').appendChild(buddieslist)
+  body.querySelectorAll('article')[1].appendChild(asideTag)
+  body.querySelector('aside').appendChild(buddieslist)
   for (var i = 0; i < buddies.length; i++) {
     var rivP = document.createElement('li')
-    document.querySelectorAll('ul')[1].appendChild(rivP)
+    body.querySelectorAll('ul')[1].appendChild(rivP)
     rivP.textContent = buddies[i]
   }
 }
@@ -90,15 +90,17 @@ makeBuddies()
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
   var changefour = document.querySelector('article aside ul li:nth-child(4)')
-  changefour.innnerHTML = 'Aragorn'
+  changefour.textContent = 'Aragorn'
 }
 beautifulStranger()
 
 // Part 6
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+  // .removeChild()
+  // .querySelector('aside').appendChild()
 }
-leaveTheShire()
+// leaveTheShire()
 
 // Part 7
 function forgeTheFellowShip() {
@@ -111,18 +113,20 @@ function forgeTheFellowShip() {
   }
   alert("All of them have joined")
 }
-forgeTheFellowShip()
+// forgeTheFellowShip()
 
 // Part 8
 function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
   // apply style to the element
   // make the background 'white', add a grey border
-  .innnerHTML = 'Gandalf the White'
-  .style.background-color
+
+  // .textContent = 'Gandalf the White'
+  // .style.backgroundColor =
+  // .style.border =
 
 }
-theBalrog()
+// theBalrog()
 
 // Part 9
 function hornOfGondor() {
@@ -130,15 +134,16 @@ function hornOfGondor() {
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   // Remove Boromir from the Fellowship
+  alert("The")
 }
-hornOfGondor()
+// hornOfGondor()
 
 // Part 10
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor
 }
-itsDangerousToGoAlone()
+// itsDangerousToGoAlone()
 
 // Part 11
 function weWantsIt() {
@@ -149,7 +154,7 @@ function weWantsIt() {
   mdiv.setAttribute('id', 'gollum')
 
 }
-weWantsIt()
+// weWantsIt()
 
 // Part 12
 function thereAndBackAgain() {
@@ -157,4 +162,4 @@ function thereAndBackAgain() {
   // remove all the baddies from the document
   // Move all the hobbits back to the shire
 }
-thereAndBackAgain()
+// thereAndBackAgain()
