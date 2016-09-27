@@ -30,13 +30,13 @@ function makeMiddleEarth() {
   var me = document.createElement('section')
   me.setAttribute('id', 'middle-earth')
   document.body.appendChild(me)
-  for (var i = 0; i < lands.length; i++) {
+  lands.forEach(function (land) {
     var landArr = document.createElement('article')
     me.appendChild(landArr)
     var heading1 = document.createElement('h1')
-    heading1.textContent = lands[i]
+    heading1.textContent = land
     landArr.appendChild(heading1)
-  }
+  })
 }
 makeMiddleEarth()
 
@@ -46,12 +46,12 @@ function makeHobbits() {
   // give each hobbit a class of hobbit
   var shirelist = document.createElement('ul')
   body.querySelector('article').appendChild(shirelist)
-  for (var i = 0; i < hobbits.length; i++) {
+  hobbits.forEach(function (hobbit) {
     var shireP = document.createElement('li')
-    var articleFirst = document.querySelector('ul').appendChild(shireP)
-    shireP.textContent = hobbits[i]
-    articleFirst.setAttribute('class', 'hobbit')
-  }
+    body.querySelector('ul').appendChild(shireP)
+    shireP.textContent = hobbit
+    shireP.setAttribute('class', 'hobbit')
+  })
 }
 makeHobbits()
 
@@ -78,11 +78,11 @@ function makeBuddies() {
   var buddieslist = document.createElement('ul')
   body.querySelectorAll('article')[1].appendChild(asideTag)
   body.querySelector('aside').appendChild(buddieslist)
-  for (var i = 0; i < buddies.length; i++) {
+  buddies.forEach(function (buddy) {
     var rivP = document.createElement('li')
     body.querySelectorAll('ul')[1].appendChild(rivP)
-    rivP.textContent = buddies[i]
-  }
+    rivP.textContent = buddy
+  })
 }
 makeBuddies()
 
@@ -97,34 +97,44 @@ beautifulStranger()
 // Part 6
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
-  // .removeChild()
-  // .querySelector('aside').appendChild()
+  hobbits.forEach(function (hobbit) {
+    var assemble = body.querySelectorAll('ul .hobbit')[0]
+    body.querySelectorAll('ul')[1].appendChild(assemble)
+  })
 }
-// leaveTheShire()
+leaveTheShire()
 
 // Part 7
 function forgeTheFellowShip() {
   // create a new div called 'the-fellowship' within rivendell
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
-  var thefellowship = document.createElement('div')
-  for (var i = 0; i < array.length; i++) {
-    array[i]
-  }
-  alert("All of them have joined")
+  var group = document.createElement('div')
+  group.className = 'the-fellowship'
+  body.querySelectorAll('article')[1].appendChild(group)
+  hobbits.forEach(function (hobbit) {
+    var guild = body.querySelector('aside .hobbit')
+    body.querySelector('div').appendChild(hobbit)
+    // alert( + " has joined")
+  })
+  // buddies.forEach(function (buddy) {
+  //   var assemble = body.querySelectorAll('ul .buddy')[0]
+  //   body.querySelectorAll('ul')[1].appendChild(assemble)
+  // })
+  // alert( + " has joined")
 }
-// forgeTheFellowShip()
+forgeTheFellowShip()
 
 // Part 8
 function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
   // apply style to the element
   // make the background 'white', add a grey border
-
-  // .textContent = 'Gandalf the White'
-  // .style.backgroundColor =
-  // .style.border =
-
+  var newguild = body.querySelector('.the-fellowship')
+  var newnameGan = newguild.querySelector('li')
+  newnameGan.textContent = 'Gandalf the White'
+  newnameGan.style.backgroundColor = 'white'
+  newnameGan.style.border = 'grey'
 }
 // theBalrog()
 
@@ -134,7 +144,7 @@ function hornOfGondor() {
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   // Remove Boromir from the Fellowship
-  alert("The")
+  alert("The Horn of Gondor has been blown")
 }
 // hornOfGondor()
 
@@ -142,6 +152,8 @@ function hornOfGondor() {
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor
+  var mountdiv = document.createElement('div')
+  mountdiv.setAttribute('id', 'mount-doom')
 }
 // itsDangerousToGoAlone()
 
@@ -152,7 +164,7 @@ function weWantsIt() {
   // Move Gollum into Mount Doom
   var mdiv = document.createElement('div')
   mdiv.setAttribute('id', 'gollum')
-
+  .querySelectorAll('#gollum').appendChild(mdiv)
 }
 // weWantsIt()
 
