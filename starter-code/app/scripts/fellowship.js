@@ -89,7 +89,7 @@ makeBuddies()
 // Part 5
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
-  var changefour = document.querySelector('article aside ul li:nth-child(4)')
+  var changefour = body.querySelector('article aside ul li:nth-child(4)')
   changefour.textContent = 'Aragorn'
 }
 beautifulStranger()
